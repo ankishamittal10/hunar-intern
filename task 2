@@ -1,0 +1,33 @@
+import PyPDF2
+from pdfminer.high_level import extract_text
+
+def read_pdf(file_path):
+    with open(file_path, 'rb') as file:
+        reader = PyPDF2.PdfReader(file)
+        text = ""
+        for page_num in range(len(reader.pages)):
+            text += reader.pages[page_num].extract_text()
+    return text
+
+def extract_pdf_text(file_path):
+    text = extract_text(file_path)
+    return text
+
+def compare_pdfs(file1, file2):
+    text1 = read_pdf(file1)
+    text2 = read_pdf(file2)
+    
+    if text1 == text2:
+        return "The PDFs are identical."
+    else:
+        return "The PDFs are different."
+
+def main():
+    file1 = input("Enter the path to the first PDF: ")
+    file2 = input("Enter the path to the second PDF: ")
+    
+    result = compare_pdfs(file1, file2)
+    print(result)
+
+if __name__ == "__main__":
+    main()
