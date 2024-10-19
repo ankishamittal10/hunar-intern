@@ -1,0 +1,19 @@
+import random
+characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+captcha = ""
+for i in range(5):
+    captcha += random.choice(characters)
+print("Generated CAPTCHA:", captcha)
+for _ in range(5):  # Generate and test the CAPTCHA 5 times
+    captcha = ""
+    for i in range(5):
+        captcha += random.choice(characters)
+    print("Generated CAPTCHA:", captcha)
+def generate_captcha(length=5):
+    characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    captcha = ""
+    for i in range(length):
+        captcha += random.choice(characters)
+    return captcha
+for _ in range(5):  # Generate and test the CAPTCHA 5 times
+    print("Generated CAPTCHA:", generate_captcha())
