@@ -1,0 +1,52 @@
+import time
+
+# Questions for the quiz
+questions = [
+    {
+        "question": "What is the capital of France?",
+        "options": ["1. Paris", "2. Berlin", "3. Rome", "4. Madrid"],
+        "answer": 1
+    },
+    {
+        "question": "Who wrote 'Hamlet'?",
+        "options": ["1. Charles Dickens", "2. J.K. Rowling", "3. William Shakespeare", "4. Mark Twain"],
+        "answer": 3
+    },
+    {
+        "question": "What is the largest planet in our solar system?",
+        "options": ["1. Earth", "2. Jupiter", "3. Mars", "4. Venus"],
+        "answer": 2
+    }
+]
+
+# Function to run the quiz
+def run_quiz(questions):
+    score = 0
+    for i, q in enumerate(questions):
+        print(f"\nQuestion {i+1}: {q['question']}")
+        for option in q['options']:
+            print(option)
+        user_answer = input("Enter the number of your answer: ")
+
+        if user_answer.isdigit() and int(user_answer) == q['answer']:
+            print("Correct!")
+            score += 1
+        else:
+            print("Incorrect!")
+
+        print(f"Current Score: {score}/{i+1}")
+        time.sleep(1)  # Adding a small delay for better experience
+
+    print("\nQuiz Completed!")
+    print(f"Final Score: {score}/{len(questions)}")
+    if score == len(questions):
+        print("Excellent job!")
+    elif score > len(questions) // 2:
+        print("Good effort!")
+    else:
+        print("Better luck next time!")
+
+# Starting the quiz
+if __name__ == "__main__":
+    print("Welcome to the Python Quiz!")
+    run_quiz(questions)
