@@ -1,0 +1,19 @@
+# Greeting Message Generator
+
+# Prompt the user to enter their first name
+first_name = input("Enter your first name: ")
+
+# Prompt the user to enter their last name
+last_name = input("Enter your last name: ")
+
+# Check if the length of first and last names is within the allowed limit
+if len(first_name) > 10:
+    print("Error: First name should be 10 characters or fewer.")
+elif len(last_name) > 10:
+    print("Error: Last name should be 10 characters or fewer.")
+else:
+    # Generate the greeting message
+    greeting_message = f"Hello {first_name} {last_name}! You just developed into python."
+    
+    # Output the greeting message
+    print(greeting_message)
