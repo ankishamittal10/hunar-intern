@@ -1,0 +1,22 @@
+# Runner-Up Score Finder
+
+# Prompt the user to enter the number of participants
+n = int(input("Enter the number of participants: "))
+
+# Prompt the user to enter the scores of the participants, separated by spaces
+scores = list(map(int, input("Enter the scores: ").split()))
+
+# Check if the number of scores matches the number of participants
+if len(scores) != n:
+    print("Error: The number of scores does not match the number of participants.")
+else:
+    # Remove duplicate scores by converting the list to a set, then sort in descending order
+    unique_scores = list(set(scores))
+    unique_scores.sort(reverse=True)
+    
+    # Check if there is a runner-up score (second highest score)
+    if len(unique_scores) > 1:
+        runner_up_score = unique_scores[1]  # The second highest score
+        print(f"The runner-up score is: {runner_up_score}")
+    else:
+        print("There is no runner-up score.")
